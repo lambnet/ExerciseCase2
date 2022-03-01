@@ -3,12 +3,14 @@ package model;
 import java.util.Date;
 
 public class Invoice {
-    private Item item;
-    private Date date;
+    private final Item item;
+    private final Date date;
+    private final int qty;
 
-    public Invoice(Item item, Date date) {
+    public Invoice(Item item, Date date, int qty) {
         this.item = item;
         this.date = date;
+        this.qty = qty;
     }
 
     public String getItemName() {
@@ -17,5 +19,9 @@ public class Invoice {
 
     public Date getDate() {
         return date;
+    }
+
+    public int getQty() {
+        return qty;
     }
 }

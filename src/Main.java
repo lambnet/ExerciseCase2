@@ -17,7 +17,7 @@ public class Main {
         list.forEach(e -> System.out.println(e.getName() + " " + e.getStock() + " " + e.getPoint()));
 
         // no 2
-        List<Invoice> invoices = new ArrayList();
+        List<Invoice> invoices = new ArrayList<>();
         HashMap<Item, Integer> soldItem = new HashMap<>();
         buyItem(new Date(),tas,  5, soldItem, invoices);
         buyItem(new Date(),tas,  5, soldItem, invoices);
@@ -25,6 +25,10 @@ public class Main {
         System.out.println(tas.getStock());
         soldItem.forEach((k,v) -> System.out.println(k.getName() + " " + v.toString()));
 
+        System.out.println("\ninvoice");
+        invoices.forEach(invoice -> {
+            System.out.println("buy " + invoice.getQty() + " " + invoice.getItemName() + " at " + invoice.getDate());
+        });
 
         // no 4
         tas.setStock(20);
@@ -42,7 +46,7 @@ public class Main {
             }else{
                 map.put(item, map.get(item) + qty);
             }
-            invoices.add(new Invoice(item, date));
+            invoices.add(new Invoice(item, date, qty));
         }
     }
 }
